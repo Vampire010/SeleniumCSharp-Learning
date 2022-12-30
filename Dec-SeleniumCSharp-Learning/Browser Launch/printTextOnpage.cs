@@ -24,7 +24,7 @@ namespace Dec_SeleniumCSharp_Learning.Browser_Launch
            
         }
 
-        [Test]
+       // [Test]
         public void Test1()
         {
 
