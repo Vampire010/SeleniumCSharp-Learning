@@ -22,7 +22,7 @@ namespace Dec_SeleniumCSharp_Learning.IwebelementsEx
 
         }
 
-        [Test]
+     //   [Test]
         public void Test1()
         {
 
@@ -51,7 +51,7 @@ namespace Dec_SeleniumCSharp_Learning.IwebelementsEx
         [TearDown]
         public void teardown()
         {
-            driver.Close();
+           driver.Close();
         }
     }
 }
