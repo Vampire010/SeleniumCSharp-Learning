@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using SeleniumExtras.WaitHelpers;
 namespace Dec_SeleniumCSharp_Learning.Parabank_Site
 {
     public class Registration
@@ -25,6 +25,7 @@ namespace Dec_SeleniumCSharp_Learning.Parabank_Site
         [Test]
         public void Test1()
         {
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
             //IWebElement clkRegister = driver.FindElement(By.LinkText("Register"));
             IWebElement clkRegisterlnk = driver.FindElement(By.PartialLinkText("Regis"));
             clkRegisterlnk.Click();
@@ -56,7 +57,7 @@ namespace Dec_SeleniumCSharp_Learning.Parabank_Site
             ssnTbox.SendKeys("112106541");
 
             IWebElement usernameTbox = driver.FindElement(By.XPath("//input[@name=\"customer.username\"]"));
-            usernameTbox.SendKeys("Laxman007");
+            usernameTbox.SendKeys("Laxman008");
 
             IWebElement passwordTbox = driver.FindElement(By.XPath("//input[@id=\"customer.password\" or @name=\"customer.password\"]\r\n"));
             passwordTbox.SendKeys("Laxman1234");
@@ -64,8 +65,17 @@ namespace Dec_SeleniumCSharp_Learning.Parabank_Site
             IWebElement confirmPassTbox = driver.FindElement(By.XPath("//input[@id=\"repeatedPassword\" and @name=\"repeatedPassword\"]\r\n"));
             confirmPassTbox.SendKeys("Laxman1234");
 
-            IWebElement submitBtn = driver.FindElement(By.XPath("//input[@id=\"repeatedPassword\" and @name=\"repeatedPassword\"]\r\n"));
+            //  IWebElement submitBtn = driver.FindElement(By.XPath("//input[@id=\"repeatedPassword\" and @name=\"repeatedPassword\"]\r\n"));
+            // submitBtn.Submit();
+
+            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+            IWebElement submitBtn = wait.Until(ExpectedConditions.ElementExists(By.XPath("//input[@id=\"repeatedPassword\" and @name=\"repeatedPassword\"]\r\n")));
             submitBtn.Submit();
+
+
+            Screenshot scrn = (driver as ITakesScreenshot).GetScreenshot();
+
+            scrn.SaveAsFile(@"C:\Users\giris\source\repos\SeleniumCSharp-Learning\Dec-SeleniumCSharp-Learning\ScreenShots\userRegister.jpeg");
 
         }
 
