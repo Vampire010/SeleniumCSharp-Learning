@@ -14,20 +14,16 @@ namespace Dec_SeleniumCSharp_Learning.IwebelementsEx
         [SetUp]
         public void Setup()
         {
-
             //calling browser driver
             driver = new ChromeDriver();
             driver.Navigate().GoToUrl("https://www.snapdeal.com/");
             driver.Manage().Window.Maximize();
             Thread.Sleep(3000);
-
-
         }
 
         [Test]
         public void indowSwitch()
         {
-
             String parentWinId = driver.CurrentWindowHandle.ToString();
             Console.Write("parentWinId: " + parentWinId);
             IWebElement productLink1 = driver.FindElement(By.XPath("//a[@href=\"https://www.snapdeal.com/product/bhawna-collection-loard-shiv-trishul/672311651336\"]"));
@@ -58,7 +54,6 @@ namespace Dec_SeleniumCSharp_Learning.IwebelementsEx
             //switch to parent to child window
             driver.SwitchTo().Window(driver.WindowHandles[2]).Close();
             Thread.Sleep(5000);
-
         }
 
 

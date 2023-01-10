@@ -25,7 +25,17 @@ namespace Dec_SeleniumCSharp_Learning.Parabank_Site
         [Test]
         public void Test1()
         {
+            //Implicit Wait
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+
+            //Fluent Wait
+            DefaultWait<IWebDriver> fluentWait = new DefaultWait<IWebDriver>(driver);
+            fluentWait.Timeout= TimeSpan.FromSeconds(10);   
+
+
+
+
+
             //IWebElement clkRegister = driver.FindElement(By.LinkText("Register"));
             IWebElement clkRegisterlnk = driver.FindElement(By.PartialLinkText("Regis"));
             clkRegisterlnk.Click();
@@ -68,6 +78,7 @@ namespace Dec_SeleniumCSharp_Learning.Parabank_Site
             //  IWebElement submitBtn = driver.FindElement(By.XPath("//input[@id=\"repeatedPassword\" and @name=\"repeatedPassword\"]\r\n"));
             // submitBtn.Submit();
 
+            //Explicit Wait
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
             IWebElement submitBtn = wait.Until(ExpectedConditions.ElementExists(By.XPath("//input[@id=\"repeatedPassword\" and @name=\"repeatedPassword\"]\r\n")));
             submitBtn.Submit();
@@ -76,6 +87,10 @@ namespace Dec_SeleniumCSharp_Learning.Parabank_Site
             Screenshot scrn = (driver as ITakesScreenshot).GetScreenshot();
 
             scrn.SaveAsFile(@"C:\Users\giris\source\repos\SeleniumCSharp-Learning\Dec-SeleniumCSharp-Learning\ScreenShots\userRegister.jpeg");
+
+
+
+
 
         }
 
