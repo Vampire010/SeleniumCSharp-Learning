@@ -29,9 +29,9 @@ namespace PageObjectModelFramework.Test_Runner
             cus_reg.zipCodeTbox("321234");
             cus_reg.phoneNumberTbox("9876543210");
             cus_reg.ssnTbox("123456789");
-            cus_reg.usernameTbox("premKumar777");
-            cus_reg.passwordTbox("premKumar@777");
-            cus_reg.repeatedPasswordTbox("premKumar@777");
+            cus_reg.usernameTbox("premKumar0777");
+            cus_reg.passwordTbox("premKumar@0777");
+            cus_reg.repeatedPasswordTbox("premKumar@0777");
             cus_reg.submitBtn();
 
         }
