@@ -1,17 +1,11 @@
 ﻿using AventStack.ExtentReports;
 using AventStack.ExtentReports.Reporter;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SpecFlowProject1.Reports
 {
     public class ExtentManager
     {
         public static ExtentHtmlReporter htmlReporter;
-
         public static ExtentReports extent;
 
         public static ExtentReports getInstance()
